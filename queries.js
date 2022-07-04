@@ -1,10 +1,11 @@
 const Pool = require('pg').Pool
+require('dotenv').config();
 const pool = new Pool({
-  user: 'postgres',
-  host: 'cat-app-db.cmtthq5xqeou.us-east-2.rds.amazonaws.com',
-  database: 'catappdb',
-  password: 'Unhackable9651',
-  port: 5432,
+  user: process.env.DATABASE_USER,
+  host: process.env.DATABASE_HOST,
+  database: process.env.DATABASE_NAME,
+  password: process.env.DATABASE_PASSWORD,
+  port: process.env.DATABASE_PORT,
 })
 
 const getUsers = (request, response) => {
